@@ -198,7 +198,7 @@ export default class uservehicles extends Component {
         id="transportId"
         style={{ marginLeft: '-20px', backgroundColor: 'white' }}
       >
-        <h3 style={{ fontFamily: 'Titillium Web' }}>View Vehicles</h3>
+        <h3 style={{ fontFamily: 'Titillium Web', backgroundColor:'white' }}>View Vehicles</h3>
         <ToastContainer
           position="bottom-right"
           autoClose={5000}
@@ -319,19 +319,19 @@ export default class uservehicles extends Component {
             ))}
           </div>
         ) : (
-          <div id="notfound">
-            <Notfound
-              message="No vehicles found!"
-              style={{ position: 'absolute', top: '40%', left: '43%' }}
-              sidemessage="Want to add up your business?"
-              detail={[
-                'Go to ',
-                <strong>Provides Services </strong>,
-                'and add up your own vehicles to earn.',
-              ]}
-            />
-          </div>
-        )}
+            <div id="notfound">
+              <Notfound
+                message="No vehicles found!"
+                style={{ position: 'absolute', top: '40%', left: '43%' }}
+                sidemessage="Want to add up your business?"
+                detail={[
+                  'Go to ',
+                  <strong>Provides Services </strong>,
+                  'and add up your own vehicles to earn.',
+                ]}
+              />
+            </div>
+          )}
         <div
           class="modal fade"
           id="myModal"

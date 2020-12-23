@@ -57,7 +57,7 @@ export default class Manualselectpois extends Component {
 
         for (var i = 0; i < POIS.length; i++) {
             //var poiDetails = '<h4>' + '<strong>' + POIS[i].name + '</strong>' + "<br/>" + 'Address: ' + POIS[i].address + "</br>" + "Ratings: " + POIS[i].rating + "/5" + "</br>" + "Total Ratings: " + POIS[i].totalRating + " people" + '</h4>'
-            var poiDetails = '<h4>' + POIS[i].name + '</h4>' + '<p>' + '<strong>Address: </strong>' + POIS[i].address + '</p>' + '<p>' + '<strong>Ratings: </strong>' + POIS[i].rating + " /5" + '</p>' + '<p>' + '<strong>Total Ratings: </strong>' + POIS[i].totalRating + " people" + '</p>'
+            var poiDetails = '<ul>' + '<strong>' + POIS[i].name + '</strong>' + '<li>' + '<strong>Address: </strong>' + POIS[i].address + '</li>' + '<li>' + '<strong>Ratings: </strong>' + POIS[i].rating + " /5" + '</li>' + '<li>' + '<strong>Total Ratings: </strong>' + POIS[i].totalRating + " people" + '</li>'+ '</ul>'
             const marker = new google.maps.Marker({
                 position: POIS[i].latLng[0],
                 icon: icons[POIS[i].type].icon,
@@ -256,6 +256,7 @@ export default class Manualselectpois extends Component {
                     latLng: [{ lat: poi.geometry.location.lat, lng: poi.geometry.location.lng }],
                     rating: poi.rating,
                     totalRating: poi.user_ratings_total,
+                    photo: poi.photos == undefined ? " " : poi.photos[0].photo_reference,
                     type: "poi",
                 }))
             )

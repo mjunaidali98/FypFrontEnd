@@ -56,6 +56,16 @@ body {
   text-align: center;
 }
 
+#automated_budget::placeholder{
+  font-size: 13px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 .plantripservice {
     width: 240px;

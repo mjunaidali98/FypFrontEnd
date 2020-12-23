@@ -284,8 +284,8 @@ export class bar extends Component {
 
         {/* 1st row */}
         <div style={{ margin: '2%' }}> </div>
-        <div className="row">
-          <div className="column">
+        <div className="Cahrtrow">
+          <div className="Chartcolumn">
             <h3
               style={{
                 fontSize: '30px',
@@ -303,8 +303,8 @@ export class bar extends Component {
             />
           </div>
           <div style={{ margin: '2%' }}> </div>
-          <div className="row">
-            <div className="column">
+          <div className="Chartrow">
+            <div className="Chartcolumn">
               <h3
                 style={{
                   fontSize: '30px',
@@ -322,7 +322,7 @@ export class bar extends Component {
               />
             </div>
             <div style={{ margin: '2%' }}> </div>
-            <div className="column">
+            <div className="Chartcolumn">
               <h3
                 style={{
                   fontSize: '30px',
@@ -342,8 +342,8 @@ export class bar extends Component {
           </div>
           {/* row 3 */}
           <div style={{ margin: '2%' }}> </div>
-          <div className="row">
-            <div className="column">
+          <div className="Chartrow">
+            <div className="Chartcolumn">
               <h3
                 style={{
                   fontSize: '30px',
@@ -360,6 +360,24 @@ export class bar extends Component {
                 width={100}
               />
             </div>
+            {/* <div style={{ margin: '2%' }}> </div>
+          <div className="Chartcolumn">
+            <h3
+              style={{
+                fontSize: '30px',
+                fontFamily: 'Titillium Web',
+                textAlign: 'center',
+              }}
+            >
+              Vehicles Stats
+            </h3>
+            <Bar
+              data={this.state.vehicleChartData}
+              options={this.state.options}
+              height={200}
+              width={100}
+            />
+          </div> */}
           </div>
         </div>
       </div>
