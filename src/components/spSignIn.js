@@ -60,6 +60,7 @@ class SpSignIn extends Component {
         password: this.state.password,
       })
       .then((res) => {
+        console.log(res);
         if (res.data.admin === false) {
           toast.success('Logged In Successfully');
           this.setState({ loading: false });

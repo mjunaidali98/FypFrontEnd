@@ -43,7 +43,7 @@ export default class becomeGuide extends Component {
     axios
       .post(
         `http://localhost:3000/users/updateAvailability/` +
-        this.state.guestData._id
+          this.state.guestData._id
       )
       .then((response) => {
         console.log(response);
@@ -215,8 +215,7 @@ export default class becomeGuide extends Component {
               style={{ height: '360px' }}
               onSubmit={(e) => {
                 e.preventDefault();
-                this.state.approved === true &&
-                  this.state.requestSent === true
+                this.state.approved === true && this.state.requestSent === true
                   ? this.onDelete(e)
                   : this.onSubmitGuide(e);
               }}
@@ -237,9 +236,7 @@ export default class becomeGuide extends Component {
               <div id="box" style={{ marginLeft: '20px' }}>
                 <label id="labels">
                   NIC number:{' '}
-                  <i style={{ fontSize: '10px' }}>
-                    `(Remain Confidential)`
-                      </i>
+                  <i style={{ fontSize: '10px' }}>`(Remain Confidential)`</i>
                 </label>
                 <input
                   type="text"
@@ -259,7 +256,7 @@ export default class becomeGuide extends Component {
               <div id="box">
                 <label for="email" id="labels">
                   Email:
-                    </label>
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -275,7 +272,7 @@ export default class becomeGuide extends Component {
                   Location:{' '}
                   <i style={{ fontSize: '10px' }}>
                     i.e. Faizabad,Rawalpindi or Sost,Gilgit
-                      </i>
+                  </i>
                 </label>
                 <input
                   type="text"
@@ -322,53 +319,54 @@ export default class becomeGuide extends Component {
 
               <div className="subcan">
                 {this.state.approved === true &&
+                this.state.requestSent === true ? (
+                  [
+                    <button
+                      type="submit"
+                      id="guideBtn"
+                      className="delguidebtn"
+                      style={{ marginLeft: '350px' }}
+                    >
+                      Remove as a guide
+                    </button>,
+                    <label style={{ marginLeft: '-500px' }}>
+                      <span>
+                        <b>Unactive</b>
+                      </span>
+                      <Switch
+                        onChange={this.handleChange}
+                        checked={this.state.availability}
+                      />
+                      <b>Active</b>
+                    </label>,
+                  ]
+                ) : this.state.approved === false &&
                   this.state.requestSent === true ? (
-                    [
-                      <button
-                        type="submit"
-                        id="guideBtn"
-                        className="delguidebtn"
-                        style={{ marginLeft: '350px' }}
-                      >
-                        Remove as a guide
-                        </button>,
-                      <label style={{ marginLeft: '-500px' }}>
-                        <span>
-                          <b>Unactive</b>
-                        </span>
-                        <Switch
-                          onChange={this.handleChange}
-                          checked={this.state.availability}
-                        />
-                        <b>Active</b>
-                      </label>,
-                    ]
-                  ) : this.state.approved === false &&
-                    this.state.requestSent === true ? (
-                      <button
-                        disabled
-                        type="submit"
-                        id="guideBtn"
-                        className="pending"
-                        style={{ marginLeft: '150px' }}
-                      >
-                        Request Pending
-                      </button>
-                    ) : this.state.approved === false &&
-                      this.state.requestSent === false ? (
-                        <button
-                          type="submit"
-                          id="guideBtn"
-                          className="saveguidebtn"
-                          style={{ marginLeft: '-20px' }}
-                        >
-                          Add as a Guide
-                        </button>
-                      ) : (
-                        <div></div>
-                      )}
+                  <button
+                    disabled
+                    type="submit"
+                    id="guideBtn"
+                    className="pending"
+                    style={{ marginLeft: '150px' }}
+                  >
+                    Request Pending
+                  </button>
+                ) : this.state.approved === false &&
+                  this.state.requestSent === false ? (
+                  <button
+                    type="submit"
+                    id="guideBtn"
+                    className="saveguidebtn"
+                    style={{ marginLeft: '-20px' }}
+                  >
+                    Add as a Guide
+                  </button>
+                ) : (
+                  <div></div>
+                )}
               </div>
-            </form></div>
+            </form>
+          </div>
         </div>
       </div>
     );

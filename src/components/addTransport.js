@@ -72,7 +72,7 @@ export default class addTransport extends Component {
       approved: this.state.approved,
     };
     await axios
-      .post('http://localhost:3000/users/transport', userdetails)
+      .post('http://localhost:3000/serviceProvider/transport', userdetails)
       .then((res) => {
         toast.success('Please wait while we verify you.');
         this.fetchUserData();
@@ -99,7 +99,7 @@ export default class addTransport extends Component {
     };
     if (this.state.approved) {
       await axios
-        .post('http://localhost:3000/users/addvehicle', vehicleObject)
+        .post('http://localhost:3000/serviceProvider/addvehicle', vehicleObject)
         .then((res) => {
           toast.success('Vehicle has been added sucessfully!');
           this.fetchUserData();
@@ -140,7 +140,10 @@ export default class addTransport extends Component {
 
       if (document.getElementById('submitbtn').innerHTML == 'Save') {
         await axios
-          .post('http://localhost:3000/users/edittransportdetails', userdetails)
+          .post(
+            'http://localhost:3000/serviceProvider/edittransportdetails',
+            userdetails
+          )
           .then((res) => {
             toast.success('Changes have been saved sucessfully.');
             this.fetchUserData();
@@ -157,7 +160,8 @@ export default class addTransport extends Component {
     if (confirm) {
       axios
         .delete(
-          `http://localhost:3000/users/deleteuserdetails/` + this.state.userid
+          `http://localhost:3000/serviceProvider/deleteuserdetails/` +
+            this.state.userid
         )
         .then((res) => {
           toast.success('Your details are deleted sucessfully.');
@@ -233,9 +237,10 @@ export default class addTransport extends Component {
 
   async fetchUserData() {
     await axios
-      .get(`http://localhost:3000/users/transportdetails`)
+      .get(`http://localhost:3000/serviceProvider/transportdetails`)
       .then((res) => {
-        if (res.data !== '' || res.data[0].length > 0) {
+        console.log(res.data.data);
+        if (res.data.data.length > 0) {
           document.getElementById('nicnumber').value = res.data[0].nicno;
           document.getElementById('phone').value = res.data[0].phone;
           document.getElementById('location').value = res.data[0].city;
@@ -270,6 +275,9 @@ export default class addTransport extends Component {
           document.getElementById('uaddress').value = this.state.address;
           document.getElementById('location').value = this.state.city;
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
   componentDidMount() {

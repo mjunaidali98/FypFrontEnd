@@ -150,7 +150,7 @@ class SpView extends React.Component {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <div id="content" style={{backgroundColor: 'white'}}></div>
+          <div id="content" style={{ backgroundColor: 'white' }}></div>
         </Layout>
       </Layout>
     );
